@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+#coding:utf-8
+
+a = {'name':'Brain','age':'4'}
+print(len(a)) #len显示字典里元素的数量
+b = a
+print(b)
+c = a.copy()  # 效果和b = a 一样
+print(c)
+c.clear() # clear 把整个字典删除
+print(c)
+del c #删除整个字典，内存也释放。再调用这个元组就会报错
+print(a.get("name")) # get通过键获取值，取不到值则返回空值，但是如果用a["name"],假如找不到值，会出现异常。
+a.setdefault("Addr","HUIZHOU") #setdefault给字典添加值
+print(a)
+print(a.keys())
+print(a.values())
+a.pop("age") #POP删除字典中键对应的值。
+print(a)
+a.popitem() # 随机删除字典中的值
+print(a)
+a.update([("age","24"),("Addr","HUIZHOU")]) #update给字典加值，另外一种用法 a.update(字典b)
+print(a)
+
+for d in a.keys():
+    print(d)
+
+测试结果：
+2
+{'name': 'Brain', 'age': '4'}
+{'name': 'Brain', 'age': '4'}
+{}
+Brain
+{'name': 'Brain', 'age': '4', 'Addr': 'HUIZHOU'}
+dict_keys(['name', 'age', 'Addr'])
+dict_values(['Brain', '4', 'HUIZHOU'])
+{'name': 'Brain', 'Addr': 'HUIZHOU'}
+{'name': 'Brain'}
+{'name': 'Brain', 'age': '24', 'Addr': 'HUIZHOU'}
+name
+age
+Addr
