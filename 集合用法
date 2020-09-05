@@ -1,0 +1,32 @@
+a = set("python")
+print(a)
+b = set("phom")
+print(b)
+
+if b.issubset(a):  # 判断b是否是a的子集
+    print("b是a的子集")
+else:
+    print("b不是a的子集")
+
+if b.issuperset(a): # 判断b是否是a的超集
+    print("b是a的超集")
+else:
+    print("b不是a的超集")
+c = a.union(b)  # a和b的合集,和 a | b的效果一样
+print("a和b的合集为" + str(c))
+d = a.intersection(b)  # a和b的交集,和 a & b的效果一样
+print("a和b的交集为" + str(d))
+e = a.difference(b)  # a相对b不同的元素
+print("a相对b不同的元素为" + str(e))
+f = a.symmetric_difference(b)  # a和b的对称差集
+print("a和b的对称差集为" + str(f))
+
+运行结果：
+{'p', 'h', 'n', 'o', 't', 'y'}
+{'p', 'o', 'h', 'm'}
+b不是a的子集
+b不是a的超集
+a和b的合集为{'p', 'h', 'm', 'n', 'o', 't', 'y'}
+a和b的交集为{'p', 'o', 'h'}
+a相对b不同的元素为{'t', 'y', 'n'}
+a和b的对称差集为{'t', 'y', 'm', 'n'}
