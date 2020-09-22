@@ -1,0 +1,47 @@
+配置文件：
+sys.cfg
+
+[numbers]
+
+pi = 3.1415926
+
+[messages]
+
+greeting = Welcome to the area calculation program!
+question = Please enter the radius:
+result_messages = The area is
+
+
+Py文件
+import configparser
+import os
+
+root_dir = os.path.dirname(os.path.abspath('.'))  #获取根目录路径
+cf = configparser.ConfigParser()
+cf.read(root_dir+"/url/sys.cfg") #读取配置文件
+
+secs = cf.sections() #读取配置文件的段，[]概括内容，返回值是元素
+print(secs)
+
+option = cf.options("numbers")  #读取配置文件的段，段落包含多少那些Key
+print(option)
+
+items = cf.items("numbers")  #读取配置文件段落中的键和值集合
+print("numbers is :")
+print(items)
+
+items = cf.items("messages")
+print("messages is :")
+print(items)
+
+value = cf.get("numbers","pi")  #读取配置文件段落中的键的值
+print("PI is " + value)
+
+结果：
+['numbers', 'messages']
+['pi']
+numbers is :
+[('pi', '3.1415926')]
+messages is :
+[('greeting', 'Welcome to the area calculation program!'), ('question', 'Please enter the radius:'), ('result_messages', 'The area is')]
+PI is 3.1415926
